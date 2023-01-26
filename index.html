@@ -1,2 +1,28 @@
-<h1><a href="#" id="myCheck" onclick="w = window.open('https://facebook.com');setTimeout(function(){window.location.href = '//google.com';},1000)">CLICK ME</a></h1>
-
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Online Shopping</title>
+</head>
+<body>
+  <b>Product</b>: Meta Quest 2<br>
+  <b>Price</b>: ₹ 2<br>
+  <b>Units</b>: <span class="count">1</span>
+  <button class="increment" onclick="increment()">+</button>
+  <button class="decrement" onclick="decrement()">-</button>
+  <hr>
+  <br>
+  <b>Total</b>: ₹ <span class="total">2</span>
+  <br>
+  <button class="checkout" onclick="checkout()">Checkout</button>
+  <script>
+  let count = 1;
+  const $count = document.getElementsByClassName('count')[0];
+  const $total = document.getElementsByClassName('total')[0];
+  $count.textContent = count;
+  function increment() { $count.textContent = ++count; $total.textContent = count * 2; }
+  function decrement() { $count.textContent = --count; $total.textContent = count * 2; }
+  function checkout() { alert(count * 2) }
+  </script>
+</body>
+</html>
