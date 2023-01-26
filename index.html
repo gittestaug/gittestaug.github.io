@@ -22,7 +22,7 @@
   $count.textContent = count;
   function increment() { $count.textContent = ++count; $total.textContent = count * 2; }
   function decrement() { $count.textContent = --count; $total.textContent = count * 2; }
-  function checkout() { alert(count * 2) }
+  function checkout() { window.location.href="https://example.com/pay/upi/" + (count * 2); }
   </script>
 </body>
 </html>
