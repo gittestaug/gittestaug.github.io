@@ -20,6 +20,7 @@
   <script>
     var port;
     window.addEventListener('message', function (event) {
+      alert(event.data);
       if (event.data == 'init-port') {
         if (event.ports[0] != null) {
           port = event.ports[0];
