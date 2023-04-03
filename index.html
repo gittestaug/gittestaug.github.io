@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Online Shopping</title>
 </head>
+
 <body>
   <b>Product</b>: Meta Quest 2<br>
   <b>Price</b>: ₹ 2<br>
@@ -16,13 +18,27 @@
   <br>
   <button class="checkout" onclick="checkout()">Checkout</button>
   <script>
-  let count = 1;
-  const $count = document.getElementsByClassName('count')[0];
-  const $total = document.getElementsByClassName('total')[0];
-  $count.textContent = count;
-  function increment() { $count.textContent = ++count; $total.textContent = count * 2; }
-  function decrement() { $count.textContent = --count; $total.textContent = count * 2; }
-  function checkout() { window.location.href="https://example.com/pay/upi/" + (count * 2); }
+    var port;
+    window.addEventListener('message', function (event) {
+      if (event.data == 'init-port') {
+        if (event.ports[0] != null) {
+          port = event.ports[0];
+          port.onmessage = function (event) {
+            alert(event.data);
+            port.postMessage("ping");
+          };
+        }
+      }
+    }, false);
+
+    let count = 1;
+    const $count = document.getElementsByClassName('count')[0];
+    const $total = document.getElementsByClassName('total')[0];
+    $count.textContent = count;
+    function increment() { $count.textContent = ++count; $total.textContent = count * 2; }
+    function decrement() { $count.textContent = --count; $total.textContent = count * 2; }
+    function checkout() { }
   </script>
 </body>
+
 </html>
