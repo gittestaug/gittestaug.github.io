@@ -25,7 +25,6 @@
           port = event.ports[0];
           port.onmessage = function (event) {
             alert(event.data);
-            port.postMessage("ping");
           };
         }
       }
@@ -37,7 +36,7 @@
     $count.textContent = count;
     function increment() { $count.textContent = ++count; $total.textContent = count * 2; }
     function decrement() { $count.textContent = --count; $total.textContent = count * 2; }
-    function checkout() { }
+    function checkout() { port.postMessage("ping"); }
   </script>
 </body>
 
