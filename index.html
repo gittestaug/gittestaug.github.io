@@ -20,12 +20,11 @@
   <script>
     var port;
     window.addEventListener('message', function (event) {
-      alert(event.data);
       if (event.data == 'init-port') {
         if (event.ports[0] != null) {
           port = event.ports[0];
           port.onmessage = function (event) {
-            alert(event.data);
+            console.log(event.data);
           };
         }
       }
@@ -37,7 +36,7 @@
     $count.textContent = count;
     function increment() { $count.textContent = ++count; $total.textContent = count * 2; }
     function decrement() { $count.textContent = --count; $total.textContent = count * 2; }
-    function checkout() { port.postMessage("ping"); }
+    function checkout() { port.postMessage("test-payment"); }
   </script>
 </body>
 
