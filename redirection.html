@@ -1,5 +1,20 @@
-<html>
-  <body>
-    <a href="https://api.whatsapp.com/send/?phone=12165552716">End</a>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>URL Redirection</title>
+</head>
+<body>
+    <input type="url" placeholder="Type url here" id="myInput">
+    <button type="button" onclick="getInputValue();">Get Value</button>
+    
+    <script>
+        function getInputValue(){
+            // Selecting the input element and get its value 
+            var inputVal = document.getElementById("myInput").value;
+            
+            window.location.href = inputVal;
+        }
+    </script>
+</body>
 </html>
