@@ -6,13 +6,12 @@
 </head>
 <body>
     <input type="url" placeholder="Type url here" id="myInput">
-    <button type="button" onclick="getInputValue();">Get Value</button>
+    <br>
+    <button type="button" onclick="getInputValue();">Go</button>
     
     <script>
         function getInputValue(){
-            // Selecting the input element and get its value 
             var inputVal = document.getElementById("myInput").value;
-            
             window.location.href = inputVal;
         }
     </script>
