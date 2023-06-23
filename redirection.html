@@ -1,34 +1,37 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>URL Redirection</title>
-    <style> 
-        input {
-          width: 100%;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>URL Redirection</title>
+  <style> 
+    input {
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-    <input type="url" placeholder="Type url here" id="myInput">
-    <br>
-    <button type="button" onclick="getInputValue();">Go</button>
-    <div id="status"/>
-    <script>
-        function getInputValue(){
-            var inputVal = document.getElementById("myInput").value;
-            document.getElementById("status").innerHTML = "Redirect in 3 seconds";
-            setTimeout(function () {
-                document.getElementById("status").innerHTML = "Redirect in 2 seconds";
-                setTimeout(function () {
-                    document.getElementById("status").innerHTML = "Redirect in 1 second";
-                    setTimeout(function () {
-                        window.location.href = inputVal;
-                    }, 1000);
-                }, 1000);
-            }, 1000);
-        }
-    </script>
+  <input type="url" placeholder="Type url here" id="myInput">
+  <br>
+  <button type="button" onclick="getInputValue();">Go</button>
+  <div id="status"/>
+  <script>
+    var input = document.getElementById("myInput");
+    function getInputValue(){
+      document.getElementById("status").innerHTML = "Redirect in 2 seconds";
+      setTimeout(function () {
+        document.getElementById("status").innerHTML = "Redirect in 1 second";
+        setTimeout(function () {
+          window.location.href = input.value;
+        }, 1000);
+      }, 1000);
+    }
+    const queryString = window.location.search;
+    const params = new URLSearchParams(queryString);
+    const url = params.get('url');
+    console.log(url);
+    input.value = url;
+  </script>
 </body>
 </html>
