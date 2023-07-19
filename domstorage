@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DOM Storage</title>
+  <style> 
+    input {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <button type="button" onclick="addDomStorage();">Add</button>
+  <button type="button" onclick="loadDomStorage();">Load</button>
+  <div id="status"/>
+  <script>
+    var input = document.getElementById("myInput");
+    function loadDomStorage(){
+      var output = "DATA:\n-----\n";
+      if (window.localStorage) {
+        if (localStorage.length) {
+          for (var i = 0; i < localStorage.length; i++) {
+            output += localStorage.key(i) + ': '
+            + localStorage.getItem(localStorage.key(i)) + '\n';
+          }
+        }
+      }
+
+      document.getElementById("status").innerHTML = output;
+    }
+
+    function addDomStorage(){
+      localStorage.setItem('key', 'value');
+    }
+  </script>
+</body>
+</html>
