@@ -13,8 +13,9 @@
   </style>
 </head>
 <body>
-  <button type="button" onclick="addDomStorage();">Add</button>
   <button type="button" onclick="loadDomStorage();">Load</button>
+  <button type="button" onclick="addDomStorage();">Add</button>
+  <button type="button" onclick="clearDomStorage();">Clear</button>
   <div id="status"/>
   <script>
     var input = document.getElementById("myInput");
@@ -34,6 +35,10 @@
 
     function addDomStorage(){
       localStorage.setItem('key', 'value');
+    }
+
+    function clearDomStorage(){
+      localStorage.clear();
     }
   </script>
 </body>
