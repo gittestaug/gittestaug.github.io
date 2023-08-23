@@ -1,29 +1,30 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>URL Redirection</title>
-  <style> 
-    input {
-      width: 100%;
-    }
-  </style>
 </head>
 <body>
-  <input type="url" placeholder="Type url here" id="myInput">
+  <input type="url" placeholder="Type url here" id="myInput" style="width: 100%;"/>
+  <br>
+  Open in new tab?<input type="checkbox" id="isNewTab"/>
   <br>
   <button type="button" onclick="getInputValue();">Go</button>
   <div id="status"/>
   <script>
     var input = document.getElementById("myInput");
+    var newTab = document.getElementById("isNewTab");
     function getInputValue(){
       document.getElementById("status").innerHTML = "Redirect in 2 seconds";
       setTimeout(function () {
         document.getElementById("status").innerHTML = "Redirect in 1 second";
         setTimeout(function () {
-          window.location.href = input.value;
+          if (newTab.checked) {
+            window.open(input.value, '_blank');
+          } else {
+            window.location.href = input.value;
+          }
         }, 1000);
       }, 1000);
     }
