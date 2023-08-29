@@ -21,7 +21,7 @@
         document.getElementById("status").innerHTML = "Redirect in 1 second";
         setTimeout(function () {
           if (newTab.checked) {
-            window.open(input.value, '_self');
+            window.open(input.value, '_blank');
           } else {
             window.location.href = input.value;
           }
