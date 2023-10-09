@@ -31,8 +31,15 @@
     const queryString = window.location.search;
     const params = new URLSearchParams(queryString);
     const url = params.get('url');
+    const new_tab = params.get('new_tab');
     console.log(url);
-    input.value = url;
+    if (new_tab) {
+      newTab.checked = true;
+    }
+    if (url) {
+      input.value = url;
+      getInputValue();
+    }
   </script>
 </body>
 </html>
